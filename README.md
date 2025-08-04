@@ -1,2 +1,84 @@
-# WD-Planetary-Population-Synthesis
-A population synthesis simulation to model the surviving population of rocky planets around white dwarfs in the solar neighbourhood. This code generates a time-evolving population of planetary systems based on Madau &amp; Dickinson SFH, Chabrier IMF, occurrence rates from Hsu et al. (2019), and stellar evolution based on Sanderson et al. (2022).
+# Population Synthesis of Planetary Systems around White Dwarfs
+
+> This repository contains the Python code for the MPhil thesis "Surviving Worlds: A Stochastic Model of Planet Demographics around Future White Dwarfs". The project consists of a self-consistent population synthesis simulation designed to model the formation and evolution of planetary systems in the solar neighborhood, with the goals of predicting the final demographics of planets (with $\leq4$ R🜨) that survive around white dwarfs and establishing a fraction of these stars with at least one planet.
+
+<p align="center">
+  <img src="path/to/your/2d_occurrence_map.png" width="700" alt="2D Occurrence Map of Surviving Planets">
+</p>
+
+## Overview of the Model
+
+The simulation follows a multi-step process to generate and evolve a realistic population of stars and planets:
+
+* **Star Formation History (SFH):** A stellar population is generated over a 14-Gyr history. The model uses the cosmic star formation rate from **(Madau & Dickinson, 2014)**, normalised to match the observed local stellar census of ~5,230 stars within 25 pc from **(Golovin et al., 2023)**.
+
+* **Stellar Population:** Stars are assigned masses from a composite Chabrier/Salpeter Initial Mass Function (IMF). Although the IMF generates a wide mass spectrum (0.08-8M⊙), the simulation focuses on 0.8–2.0 M⊙ progenitors. Lifetimes are calculated using the formulae from **(Hurley et al., 2000)**.
+
+* **Planetary Population:** Each progenitor star is populated with planets based on the occurrence rates from **(Hsu et al., 2019)**. The number of planets per star is determined stochastically from a Poisson distribution whose mean is the total occurrence rate.
+
+* **Planetary System Evolution:** As stars reach the end of their main-sequence lifetime, the orbits of their planets are evolved numerically with `scipy.integrate.solve_ivp`. The model accounts for the two competing effects:
+    * **Stellar Mass Loss:** Causes orbits to expand.
+    * **Tidal Forces:** Cause orbits to shrink and can lead to engulfment.
+    The implementation is based on the model in **(Sanderson et al., 2022)**, and uses the stellar evolution tracks from **(Vassiliadis & Wood, 1993)**.
+
+## Key Results
+
+The main scientific outputs of this simulation are:
+
+* A validation of the model by successfully reproducing the observed number of white dwarfs in the 25 an 40 pc solar neighborhood.
+* A full census of the surviving planet population, including their final orbital distances and radii.
+* A 2D occurrence map showing the probability of finding a surviving planet as a function of its mass and orbit.
+* An optimistic upper limit on the fraction of white dwarfs that could host planets in their habitable zones.
+
+## Getting Started
+
+Follow these steps to set up and run the code on your local machine.
+
+### Prerequisites
+
+* Python 3.x
+* A `requirements.txt` file is included in the repository to install all necessary dependencies.
+
+
+### Installation
+
+1.  **Clone this repository:**
+    ```bash
+    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
+    cd your-repository-name
+    ```
+
+2.  **Create and activate a virtual environment (recommended):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On macOS/Linux
+    # venv\Scripts\activate    # On Windows
+    ```
+
+3.  **Install the dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Running the Simulation
+
+1.  Ensure all input data files (e.g., `agb1p0.dat`, `ajab31abt2_ascii.txt`) are in the correct directory.
+2.  Launch Jupyter Notebook or Jupyter Lab:
+    ```bash
+    jupyter notebook
+    ```
+3.  Open and run the cells in `FinalNotebook.ipynb` sequentially. The notebook is divided into sections for data processing, simulation, and analysis.
+
+## 📄 Citation
+
+If you use this code or its results in your research, please cite the original thesis:
+
+* R. A. Cruz Escorza (2025), *A Stochastic Model for the Generation of Planetary Systems around White Dwarf Progenitors*, MPhil Thesis, University of Cambridge.
+
+## ⚖️ License
+
+This project is distributed under the MIT License. See the `LICENSE` file for more details.
+
+## 👤 Author
+
+* **R. A. Cruz Escorza** - [GitHub](https://github.com/your-username) - [Email](mailto:your-email@example.com)
