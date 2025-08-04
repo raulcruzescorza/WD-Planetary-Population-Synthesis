@@ -44,21 +44,60 @@ Follow these steps to set up and run the code on your local machine.
 
 1.  **Clone this repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
-    cd your-repository-name
+    git clone git clone https://github.com/your-username/your-repository-name.git
+    cd WD-Planetary-Population-Synthesis
     ```
 
-2.  **Create and activate a virtual environment (recommended):**
+2.  **Navigate to the project directory**
+    ```bash
+    cd WD-Planetary-Population-Synthesis
+    ```
+
+3.  **Create a virtual environment**
+
+    This command creates a directory named `venv` which will contain a private Python installation and the necessary libraries for this project.
     ```bash
     python -m venv venv
-    source venv/bin/activate  # On macOS/Linux
-    # venv\Scripts\activate    # On Windows
     ```
 
-3.  **Install the dependencies:**
+4.  **Activate the virtual environment**
+
+    You need to activate the environment in every new terminal session you open to work on this project.
+
+    * **On macOS / Linux:**
+        ```bash
+        source venv/bin/activate
+        ```
+    * **On Windows:**
+        ```bash
+        .\venv\Scripts\activate
+        ```
+    > You'll know it worked because your terminal prompt will change to show `(venv)` at the beginning.
+
+5.  **Install the required dependencies**
+
+    This command reads the `requirements.txt` file and automatically installs all the specific library versions used for this analysis.
     ```bash
     pip install -r requirements.txt
     ```
+
+6.  **Run the project**
+
+    You are all set! Now you can launch Jupyter and run the `FinalNotebook.ipynb` file.
+    ```bash
+    jupyter notebook
+    ```
+    Or if you use Jupyter Lab:
+    ```bash
+    jupyter lab
+    ```
+7.  **End of the virtual environment**
+
+    To return to your kernel settings use:
+    ```bash
+    deactivate
+    ```
+    Only use this line when you are done running everything.
 
 ### Running the Simulation
 
@@ -69,16 +108,16 @@ Follow these steps to set up and run the code on your local machine.
     ```
 3.  Open and run the cells in `FinalNotebook.ipynb` sequentially. The notebook is divided into sections for data processing, simulation, and analysis.
 
-## 📄 Citation
+## Citation
 
 If you use this code or its results in your research, please cite the original thesis:
 
-* R. A. Cruz Escorza (2025), *A Stochastic Model for the Generation of Planetary Systems around White Dwarf Progenitors*, MPhil Thesis, University of Cambridge.
+* R. A. Cruz Escorza (2025), *Surviving Worlds: A Stochastic Model of Planet Demographics around Future White Dwarfs*, MPhil Thesis, University of Cambridge.
 
-## ⚖️ License
+## License
 
 This project is distributed under the MIT License. See the `LICENSE` file for more details.
 
-## 👤 Author
+## Author
 
-* **R. A. Cruz Escorza** - [GitHub](https://github.com/your-username) - [Email](mailto:your-email@example.com)
+* **R. A. Cruz Escorza** - [GitHub](https://github.com/your-username) - [Email](rac228@cam.ac.uk)
