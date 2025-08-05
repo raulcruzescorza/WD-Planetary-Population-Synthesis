@@ -26,9 +26,9 @@ final_systems = {}
 final_all_systems = {}
 
 # Erasing/Creating Test Files
-with open("InitialPlanetaryPopulation.txt", "w") as f:
+with open("Results/InitialPlanetaryPopulation.txt", "w") as f:
     f.write("--- Initial Exoplanet Population ---\n\n")
-with open("FinalPlanetaryPopulation.txt", "w") as f:
+with open("Results/FinalPlanetaryPopulation.txt", "w") as f:
     f.write("--- Surviving Planetary Population Around WD ---\n\n")
 
 data_track_1p0 = read_star('Data/agb1p0.dat')
