@@ -1,3 +1,15 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import re
+from astropy import units as u
+from astropy.io import ascii
+from scipy import integrate
+from scipy.integrate import quad
+import csv
+from astropy.cosmology import Planck18 as cosmo
+from astropy.cosmology import z_at_value
+
 # Equation for semimajor axis change under tidal decay and stellar mass loss. See Mustill & Villaver (2012).
 # This code was extracted from Sanderson et al. (2022).
 def eom(t,x,star,Mpl):
