@@ -120,7 +120,7 @@ def leer_tabla_y_procesar(file_path):
 
 
 def generate_planetary_systems(stellar_masses):
-    df = leer_tabla_y_procesar("/Users/Raul/Desktop/ajab31abt2_ascii.txt")
+    df = leer_tabla_y_procesar("data/ajab31abt2_ascii.txt")
     systems = {}
     for i in range(len(stellar_masses)):
         m_star = stellar_masses[i]
