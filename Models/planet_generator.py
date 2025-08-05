@@ -48,7 +48,7 @@ def parse_efficiency_asymmetric(s):
     if m:
         val, exponent = map(float, m.groups())
         value = val * (10 ** exponent)
-        # Para límites superiores, no hay un error definido, devolvemos None
+        # For the upper error there is no defined error, return None
         return value, None, None
 
     return None, None, None
@@ -133,16 +133,16 @@ def generate_planetary_systems(stellar_masses):
             if pd.isna(err_pos) or pd.isna(err_neg):
                 current_rate = eff_value
             else:
-                # Calculamos la sigma como el promedio de los errores
+                # Calculate sigma as an average error.
                 sigma = (err_pos + err_neg) / 2.0
-                # Tomamos una muestra de una distribución normal
+                # We take a sample from a normal distribution.
                 current_rate = np.random.normal(loc=eff_value, scale=sigma)
 
-            # Nos aseguramos de que la tasa nunca sea negativa
+            # We make sure the rate is never negative.
             if current_rate < 0:
                 current_rate = 0
             
-            # Usamos esta nueva tasa (variable) para la distribución de Poisson
+            # We use this rate as the value of a poisson distribution.
             num = np.random.poisson(current_rate)
 
             for j in range(num):
