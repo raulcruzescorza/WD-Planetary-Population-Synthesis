@@ -44,7 +44,7 @@ Follow these steps to set up and run the code on your local machine.
 
 1.  **Clone this repository:**
     ```bash
-    git clone git clone https://github.com/your-username/your-repository-name.git
+    git clone git clone https://github.com/raulcruzescorza/WD-Planetary-Population-Synthesis.git
     cd WD-Planetary-Population-Synthesis
     ```
 
